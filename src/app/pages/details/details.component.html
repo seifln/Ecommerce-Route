@@ -1,0 +1,39 @@
+<section>
+    <div>
+        <h1 class="text-center text-main my-2 text-5xl text-[#169E48]">Product Details</h1>
+    
+        <div class="flex items-center">
+            <div>
+                <img [src]="productDetails.imageCover" class="w-96 px-5" alt="">
+            </div>
+        
+            <div class="w-full">
+                <h2 class=" my-2 text-2xl font-bold">{{productDetails.title}}</h2>
+                <p>{{productDetails.description}}</p>
+    
+                <br>
+    
+                <h3 class=" text-[#169E48]">{{productDetails.category?.name}}</h3>
+    
+         
+    
+                <div class="flex justify-between items-center">
+                    <span class="font-extrabold">{{productDetails.price | currency : "EGP" }}</span>
+                
+                    <div class="flex items-center">
+                        <i class="fas fa-star text-yellow-300"></i>  
+                        <span class="text-gray-500">{{productDetails.ratingsAverage}}</span>
+                    </div>
+                </div>
+    
+                <button (click)="addToCart()" class="bg-green-600 btn-main text-white py-2 px-10 border rounded w-full block hover:bg-green-700 transition-colors">
+                    +Add To Cart
+                </button>
+    
+    
+            </div>  
+        
+        </div>
+    </div>
+    
+</section>

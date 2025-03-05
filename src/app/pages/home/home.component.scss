@@ -1,0 +1,32 @@
+.card {
+    position: relative;
+
+    // Heart Icon (Always Visible)
+    .heart-btn {
+        transform: none; // Always visible
+        opacity: 1; 
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    // "Add to Cart" Button (Hidden by Default, Appears on Hover)
+    .add-to-cart {
+        transform: translateY(100%);
+        transition: all 0.5s;
+        opacity: 0;
+    }
+
+    &:hover {
+        .add-to-cart {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}

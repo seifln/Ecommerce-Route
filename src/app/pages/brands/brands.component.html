@@ -1,0 +1,28 @@
+<div class="container mx-auto px-4">
+  <h2 class="text-center text-xl font-bold text-green-600 my-6 border-b-2 pb-2 inline-block">All Brands</h2>
+
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+    @for (brand of brands; track brand._id) {
+      <div class="border border-gray-300 rounded-lg p-4 text-center cursor-pointer transition-all hover:shadow-md hover:scale-105"
+        (click)="fetchBrandDetails(brand._id)">
+        <img [src]="brand.image" class="w-full h-20 object-contain mx-auto" alt="{{ brand.name }}">
+        <p class="text-gray-700 font-medium mt-2">{{ brand.name }}</p>
+      </div>
+    }
+  </div>
+
+  @if (loading) {
+    <div class="text-center my-6">
+      <p class="text-blue-500 text-lg font-medium">Loading brand details...</p>
+    </div>
+  }
+
+  @if (selectedBrand) {
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center my-6">
+      <h3 class="text-xl font-bold mb-2">Selected Brand:</h3>
+      <h5 class="text-lg font-semibold text-gray-700">{{ selectedBrand.name }}</h5>
+      <img [src]="selectedBrand.image" class="w-full max-w-md mx-auto rounded-lg my-4" alt="{{ selectedBrand.name }}">
+      <p class="text-gray-600">{{ selectedBrand.description }}</p>
+    </div>
+  }
+</div>
